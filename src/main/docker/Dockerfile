@@ -1,3 +1,4 @@
+#FROM java:8
 FROM frolvlad/alpine-oraclejdk8:slim
 VOLUME /tmp
 ADD spring-boot-1.0.0.jar app.jar
