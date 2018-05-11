@@ -57,6 +57,7 @@
 						</resource>
 					</resources>
 					<serverId>docker-harbor</serverId>
+					<forceTags>true</<forceTags>>
 				</configuration>
 			</plugin>
     <!-- end::plugin[] -->
