@@ -3,11 +3,11 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.waylau</groupId>
-	<artifactId>docker-spring-boot</artifactId>
+	<groupId>com.lpz</groupId>
+	<artifactId>spring-boot</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0.0</version>
-	<name>docker-spring-boot</name>
+	<name>spring-boot</name>
 	<description>Getting started with Spring Boot and Docker</description>
 	
     <parent>
@@ -43,6 +43,12 @@
 				<configuration>
 					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
 					<dockerDirectory>src/main/docker</dockerDirectory>
+					<imageTags>
+			            <imageTag>0.0.1</imageTag>
+			            <imageTag>latest</imageTag>
+			          </imageTags>
+			          <baseImage>java</baseImage>
+			          <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
@@ -50,6 +56,7 @@
 							<include>${project.build.finalName}.jar</include>
 						</resource>
 					</resources>
+					<serverId>docker-harbor</serverId>
 				</configuration>
 			</plugin>
     <!-- end::plugin[] -->
@@ -58,7 +65,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<docker.image.prefix>waylau</docker.image.prefix>
+		<docker.image.prefix>harbor.lipingzan.cn</docker.image.prefix>
         <java.version>1.8</java.version>
 	</properties>
 </project>
